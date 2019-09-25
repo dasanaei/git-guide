@@ -1,5 +1,17 @@
 # Git Guide
 
+## What is Git?
+Git is the most popular form of code version control. Version control allows for multiple users to edit the same code base, see what edits have been made, and retain previous versions. Some (myself included) might ask *Why don't we just use Google Drive because this is far too complex??* The answer is that Git does everything in a far easier and more efficient way (if you understand the commands). With Git you will never have to redownload files, ask others what their changes were, and get confused with what version is the newest. Also you can show others (employers) all of the code and projects you have written in your design teams or free time.
+
+## Necessary  Downloads
+In order to use Git on Windows, git (and git bash) needs to be installed on your machine. Git bash is a shell/emulator that allows you to use some linux commands and is optimized for git usage. **on Mac, git comes with the computer, and no installation is neccesary**.
+
+[Git for windows:](https://git-scm.com/download/win)
+
+For an optimized code editing experienced, I highly reccomend Visual Studio Code; in my opinion, it is the most powerful/easy to use text editor in existance. Other text editors that can work are Sublime Text, Notepadd++ or vim. It is highly reccomended to use this software (rather than nano/vim) because it allows you to physically see merge conflicts during the rebase process. It will show you exactly where conflicted code exists, and allows you to individually choose what code should remain. 
+
+[VSCode Download:](https://code.visualstudio.com/download)
+
 ## Start a project
 To start a project, you have two options. Either create a new repository or download (clone) an existing repository on Github.
 ### From a repository
@@ -44,8 +56,16 @@ git add .
 git commit -m 'Commit Message'
 git push origin [Insert branch name]
 ```
-
 It is vital to specify the branch name you were working on. Never push directly to master unless at the beginning of a project
+
+**If you ever make a commit and find a mistake or want to add more to it, then use the --amend command. It is highly reccomended to not clutter the commits with small changes**
+```
+git add . 
+git commit --amend
+:wq
+git push origin [Insert branch name] -f
+```
+*`:wq` is necessary to leave the text editor (you can change the name of the commit here)*
 ## Pull changes
 
 Pulling from a repo means to download changes that have been made. This should be done if you want to update your code to match what is on the repository. 
@@ -67,7 +87,7 @@ git rebase --continue
 If all errors are cleared, and the rebase is successful, then run
 ```
 git add .
-git push origin [branch]
+git push origin [branch] -f
 ```
 
 ## Merge
